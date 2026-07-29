@@ -1,24 +1,21 @@
-# LumiTeach Manuals
+# LumiTeach Manual
 
-LumiTeach service and admin manuals consolidated into one repository.
+Static LumiTeach service guide for GitHub Pages.
 
-## Structure
+## Image Localization
 
-- `service/`: service help center copied from `topgonyisback/lumiteach-menual`
-- `admin/`: admin guide copied from `topgonyisback/lumiteach-menual-admin`
-- `index.html`: root entry page linking to both manuals
+Manual image tokens stay language-neutral in content, for example:
 
-## Source Revisions
-
-- Service manual source: `topgonyisback/lumiteach-menual` at `50f4517512a2e94a2c542f70695404cf8b26c5a7`
-- Admin manual source: `topgonyisback/lumiteach-menual-admin` at `ef6c91943d4adfe065d0cb66e32745a6acdac679`
-
-## Local Preview
-
-Open `index.html` directly in a browser, or run a static server from the repository root:
-
-```bash
-python3 -m http.server 8767
+```text
+[[image:edit-lesson-create/01.png|caption]]
 ```
 
-Then visit `http://127.0.0.1:8767/`.
+The renderer resolves images in this order:
+
+1. `lumiteach_assets/manual/{currentLanguage}/edit-lesson-create/01.png`
+2. `lumiteach_assets/manual/ko/edit-lesson-create/01.png`
+3. `lumiteach_assets/manual/en/edit-lesson-create/01.png`
+4. `lumiteach_assets/manual/edit-lesson-create/01.png` as the legacy shared fallback
+
+So localized screenshots can be added under `lumiteach_assets/manual/ko`, `en`, `pt`, `es`, `ja`, or `vi` without changing the article body. If a localized image is missing, the existing shared image remains visible.
+
