@@ -14968,3 +14968,191 @@ if (!translations.en.articleBodies['cat-faq'].some((body) => body.includes('I st
   translations.en.articleBodies['cat-faq'].push(aiCreditsEnglishFaq);
 }
 // END AI CREDITS MANUAL TRANSLATION PATCH
+
+// BEGIN AI CREDITS LOCALIZED TRANSLATION PATCH
+const aiCreditsLocalizedTranslations = {
+  "pt": {
+    faqTree: {
+      title: "11. Perguntas frequentes (FAQ)",
+      description: "Respostas para perguntas comuns ao usar o LumiTeach"
+    },
+    manualTree: {
+      title: "10. Como funcionam os AI Credits",
+      description: "Como os AI Credits são concedidos, usados, deduzidos e reembolsados"
+    },
+    article: {
+      title: "Como funcionam os AI Credits",
+      desc: "Entenda como os AI Credits funcionam, incluindo tipos de crédito, estimativas de uso, regras de dedução, operações de Admin e reembolsos.",
+      note: "Os AI Credits são deduzidos conforme o recurso de IA utilizado e o volume real de processamento de IA. Créditos mensais incluídos e créditos adicionais seguem regras diferentes.",
+      sections: [
+        "Sobre a IA do LumiTeach",
+        "O que são AI Credits?",
+        "Tipos de crédito em resumo",
+        "Uso estimado por recurso de IA",
+        "Como os créditos são verificados e deduzidos",
+        "Ordem de consumo e validade dos créditos",
+        "Guia de operação de créditos para Admin",
+        "Política de reembolso e cancelamento"
+      ]
+    },
+    body: [
+      "No LumiTeach, você pode usar recursos de IA ao criar e utilizar materiais didáticos. A IA ajuda a produzir conteúdos de ensino e aprendizagem com mais rapidez, refiná-los e aplicá-los em Lessons ou Assignments.\n\nOs recursos de IA são usados nestas áreas.\n\n- **Edit Lesson**: Rewrite, With AI\n- **Start Teaching**: organização de resultados de Brainstorming (Wordcloud, Classification, Mindmap)\n- **Admin**: marcação de Curriculum, marcação de metadados de Content, With AI",
+      "**AI Credits** são as unidades usadas para executar recursos de IA em toda a plataforma LumiTeach. A regra básica é **1 crédito = 1 token**. Token é a unidade de processamento usada pelo LLM ao lidar com texto e imagens.\n\nDependendo do seu plano, créditos mensais incluídos podem ser concedidos automaticamente todos os meses. Se os créditos acabarem, você pode comprar um pacote adicional ou solicitar mais créditos ao admin da sua organização.",
+      "O LumiTeach usa dois tipos principais de AI Credits.\n\n### Créditos de Admin\n\n- Usados por admins de instituições, empresas, agências ou parceiros de conteúdo.\n- Concedidos como um saldo compartilhado de Admin com base no contrato.\n- Usados em recursos de IA do Admin, como With AI, marcação de Curriculum e marcação de metadados de Content.\n- Podem ser compartilhados ou transferidos para professores da organização.\n\n### Créditos de Service\n\n- Usados por contas individuais de Teacher no serviço LumiTeach.\n- Concedidos mensalmente ou adicionados por compra ou aprovação do admin.\n- Usados em With AI, Rewrite e organização de resultados de Brainstorming.\n- Não podem ser transferidos diretamente entre contas de Teacher.\n\nCréditos de Admin e créditos de Service são tipos separados, mas **1 crédito tem o mesmo valor** em todos os lugares e segue o mesmo padrão de token.",
+      "O uso de créditos é calculado com base no uso real de tokens. Os números abaixo são estimativas e podem variar conforme o material enviado, a quantidade de imagens e o resultado gerado.\n\n### With AI\n\n- Upload de texto: cerca de **100 créditos**\n- Upload de texto + imagens: cerca de **100 créditos**\n- Upload de vídeo: cerca de **150 créditos**\n- Plano disponível: Free ou superior\n\n### Brainstorming board\n\n- Wordcloud: cerca de **3 créditos**\n- Classification: cerca de **3 créditos**\n- Mindmap: cerca de **5 créditos**\n- Plano disponível: Free ou superior\n\n### Rewrite\n\n- Rewrite: cerca de **1 crédito**\n- Plano disponível: Free ou superior\n\n### Auto-Tagging (Admin)\n\n- Marcação de Curriculum: cerca de **10 créditos**\n- Marcação de Content: cerca de **10 créditos**\n- Plano disponível: Pro ou superior\n\nA estimativa de uso do With AI considera a geração de 10 atividades por execução, e o padrão pode ser recalculado periodicamente com base nos dados de operação do serviço.",
+      "Os recursos de IA verificam e deduzem créditos em duas etapas, porque o uso exato de tokens só é confirmado depois que o modelo de IA é executado.\n\n### Verificação prévia\n\nAntes de um recurso de IA ser executado, o LumiTeach estima os tokens necessários e os converte em créditos. Se o saldo atual for menor que os créditos estimados necessários, o recurso não poderá ser executado.\n\n### Liquidação final\n\nQuando o resultado de IA é gerado com sucesso, a dedução final se baseia nos tokens realmente usados. Se você cancelar uma tarefa no meio, os créditos são deduzidos apenas pelos tokens usados nos resultados gerados até o cancelamento. Se um erro do motor de IA ou do sistema impedir a entrega dos resultados, todos os créditos reservados são restaurados.",
+      "Os créditos são consumidos nesta ordem.\n\n- 1. Créditos mensais incluídos\n- 2. Créditos adicionais concedidos ou comprados\n\nA validade depende do tipo de crédito.\n\n- **Créditos mensais incluídos**: concedidos a uma conta individual de Teacher e podem ser transferidos para o período seguinte.\n- **Créditos adicionais**: concedidos a uma conta individual de Teacher, podem ser transferidos para o período seguinte e são válidos por 1 ano a partir da data de aprovação.\n\nVocê pode verificar os créditos restantes e o histórico de uso em **Setting > AI Credit**.",
+      "Este guia se aplica a admins principais que operam créditos da organização para agências, empresas, instituições ou parceiros de conteúdo.\n\n### Concessão de créditos de Admin\n\nCréditos de Admin são concedidos em lote conforme o valor contratado. Se forem necessários mais créditos de Admin, eles são tratados por meio de um contrato adicional. A data de referência é definida automaticamente como a data de início do contrato da organização.\n\n### Créditos mensais para Teachers\n\nOs créditos mensais de Teacher são concedidos todos os meses às **00:00:00 UTC**, com base na data de início do contrato ou em uma data designada para a conta. Se a data de concessão for 29, 30 ou 31 e essa data não existir em determinado mês, os créditos são concedidos no último dia desse mês.\n\n- Exemplo: se a data de referência for 31 de março, as concessões ocorrerão em 30 de abril, 31 de maio e 30 de junho.\n- Em fevereiro de um ano não bissexto, os créditos são concedidos em 28 de fevereiro.\n- Teachers que entram no meio do mês recebem os créditos incluídos imediatamente após a verificação da conta.\n- Quando um Teacher sai ou é desvinculado da organização, o uso de AI Credit é desativado imediatamente.\n- Se um Teacher retornar à mesma empresa depois de já ter recebido os créditos daquele mês, os créditos não serão concedidos novamente.\n- Se um Teacher entrar em outra empresa, os créditos mensais serão concedidos com base na nova organização.\n\n### Solicitações de créditos adicionais\n\nTeachers podem clicar em **Request credits** para solicitar mais créditos ao admin da organização. Quando o admin aprova, os créditos são deduzidos do saldo compartilhado de Admin e concedidos imediatamente ao Teacher.\n\nNão há um recurso no produto para que um Admin ou uma organização solicite créditos a um admin principal. Nesse caso, entre em contato diretamente com o admin principal responsável, e os créditos serão concedidos após a conclusão do contrato adicional.\n\n### Edição das informações de concessão\n\n- **Conceder créditos adicionais de Admin**: concedidos imediatamente e adicionados ao saldo existente.\n- **Conceder créditos adicionais de Teacher**: concedidos imediatamente e adicionados ao saldo existente.\n- **Alterar o valor mensal de créditos de Teacher**: aplicado a partir da próxima concessão.",
+      "O tratamento de reembolso e cancelamento depende do tipo de crédito e do status da tarefa.\n\n- **Créditos mensais incluídos**: não são reembolsáveis. Se o usuário sair ou for desvinculado da organização, o uso é interrompido imediatamente.\n- **Créditos adicionais**: não são reembolsáveis. Se o usuário sair ou for desvinculado da organização, o uso é interrompido imediatamente.\n- **Cancelar uma tarefa de IA no meio**: os créditos são deduzidos apenas pelos tokens usados até o cancelamento, e a parte não usada é devolvida.\n- **Erro do sistema**: se um erro do motor de IA ou do sistema impedir a entrega dos resultados, os créditos reservados são totalmente restaurados."
+    ],
+    faqSection: "AI Credits",
+    faqMarker: "Ainda tenho créditos mensais restantes",
+    faqBody: "### AI Credits\n\n**Q. Ainda tenho créditos mensais restantes. Eles passam para o mês seguinte?**\n\nSim. A política de AI Credit indica que os créditos mensais incluídos podem ser transferidos para o período seguinte. Você pode verificar os créditos restantes e a próxima data de recarga em **Setting > AI Credit**.\n\n**Q. O que devo fazer se não tiver créditos suficientes?**\n\nVocê pode comprar um pacote de créditos adicional ou solicitar mais créditos ao admin da sua organização. Se você for Teacher de uma organização, use **Request credits**; assim que o admin aprovar, os créditos serão concedidos imediatamente.\n\n**Q. Se eu interromper uma tarefa de IA no meio, recebo reembolso?**\n\nSe você cancelar no meio, os créditos serão deduzidos apenas pelos tokens usados nos resultados gerados até o cancelamento. A parte não usada é devolvida.\n\n**Q. O que acontece se a IA retornar um erro?**\n\nSe um erro do motor de IA ou do sistema impedir a entrega dos resultados, todos os créditos reservados serão restaurados.\n\n**Q. O que acontece com meus créditos restantes se eu sair?**\n\nSe você sair ou for desvinculado de uma organização, o uso de AI Credit será desativado imediatamente. Créditos mensais incluídos e créditos adicionais não são reembolsáveis.\n\n**Q. Onde posso ver meu histórico de uso de créditos?**\n\nVocê pode revisar o uso mensal de créditos em **Setting > AI Credit**, na área **Usage History**."
+  },
+  "es": {
+    faqTree: {
+      title: "11. Preguntas frecuentes (FAQ)",
+      description: "Respuestas a preguntas comunes al usar LumiTeach"
+    },
+    manualTree: {
+      title: "10. Cómo funcionan los AI Credits",
+      description: "Cómo se otorgan, usan, deducen y reembolsan los AI Credits"
+    },
+    article: {
+      title: "Cómo funcionan los AI Credits",
+      desc: "Consulta cómo funcionan los AI Credits, incluidos los tipos de crédito, estimaciones de uso, reglas de deducción, operaciones de Admin y reembolsos.",
+      note: "Los AI Credits se deducen según la función de IA que utilices y la cantidad real de procesamiento de IA. Los créditos mensuales incluidos y los créditos adicionales siguen reglas diferentes.",
+      sections: [
+        "Acerca de la IA de LumiTeach",
+        "¿Qué son los AI Credits?",
+        "Tipos de crédito de un vistazo",
+        "Uso estimado por función de IA",
+        "Cómo se verifican y deducen los créditos",
+        "Orden de consumo y validez de los créditos",
+        "Guía de operación de créditos para Admin",
+        "Política de reembolso y cancelación"
+      ]
+    },
+    body: [
+      "En LumiTeach, puedes usar funciones de IA mientras creas y utilizas materiales didácticos. La IA te ayuda a producir contenido de enseñanza y aprendizaje más rápido, perfeccionarlo y aplicarlo a Lessons o Assignments.\n\nLas funciones de IA se usan en estas áreas.\n\n- **Edit Lesson**: Rewrite, With AI\n- **Start Teaching**: organización de resultados de Brainstorming (Wordcloud, Classification, Mindmap)\n- **Admin**: etiquetado de Curriculum, etiquetado de metadatos de Content, With AI",
+      "**AI Credits** son las unidades usadas para ejecutar funciones de IA en toda la plataforma LumiTeach. La regla básica es **1 crédito = 1 token**. Un token es la unidad de procesamiento que usa el LLM al manejar texto e imágenes.\n\nSegún tu plan, los créditos mensuales incluidos pueden otorgarse automáticamente cada mes. Si te quedas sin créditos, puedes comprar un paquete adicional o solicitar más créditos al admin de tu organización.",
+      "LumiTeach utiliza dos tipos principales de AI Credits.\n\n### Créditos de Admin\n\n- Los usan admins de instituciones, empresas, agencias o socios de contenido.\n- Se otorgan como un saldo compartido de Admin según el contrato.\n- Se usan para funciones de IA de Admin, como With AI, etiquetado de Curriculum y etiquetado de metadatos de Content.\n- Pueden compartirse o transferirse a profesores de la organización.\n\n### Créditos de Service\n\n- Los usan cuentas individuales de Teacher en el servicio LumiTeach.\n- Se otorgan mensualmente o se agregan mediante compra o aprobación del admin.\n- Se usan para With AI, Rewrite y organización de resultados de Brainstorming.\n- No pueden transferirse directamente entre cuentas de Teacher.\n\nLos créditos de Admin y los créditos de Service son tipos separados, pero **1 crédito tiene el mismo valor** en todos los lugares y sigue el mismo estándar de token.",
+      "El uso de créditos se calcula a partir del uso real de tokens. Las cifras siguientes son estimaciones y pueden variar según el material subido, la cantidad de imágenes y el resultado generado.\n\n### With AI\n\n- Subir texto: aproximadamente **100 créditos**\n- Subir texto + imágenes: aproximadamente **100 créditos**\n- Subir video: aproximadamente **150 créditos**\n- Plan disponible: Free o superior\n\n### Brainstorming board\n\n- Wordcloud: aproximadamente **3 créditos**\n- Classification: aproximadamente **3 créditos**\n- Mindmap: aproximadamente **5 créditos**\n- Plan disponible: Free o superior\n\n### Rewrite\n\n- Rewrite: aproximadamente **1 crédito**\n- Plan disponible: Free o superior\n\n### Auto-Tagging (Admin)\n\n- Etiquetado de Curriculum: aproximadamente **10 créditos**\n- Etiquetado de Content: aproximadamente **10 créditos**\n- Plan disponible: Pro o superior\n\nLa estimación de uso de With AI se basa en generar 10 actividades por ejecución, y el estándar puede recalcularse periódicamente con base en los datos de operación del servicio.",
+      "Las funciones de IA verifican y deducen créditos en dos pasos porque el uso exacto de tokens solo se confirma después de que se ejecuta el modelo de IA.\n\n### Verificación previa\n\nAntes de ejecutar una función de IA, LumiTeach estima los tokens necesarios y los convierte en créditos. Si tu saldo actual es inferior a los créditos estimados necesarios, la función no puede ejecutarse.\n\n### Liquidación posterior\n\nCuando el resultado de IA se genera correctamente, la deducción final se basa en los tokens realmente utilizados. Si cancelas una tarea a mitad del proceso, los créditos se deducen solo por los tokens usados por los resultados generados hasta la cancelación. Si un error del motor de IA o del sistema impide proporcionar resultados, todos los créditos reservados se restauran.",
+      "Los créditos se consumen en este orden.\n\n- 1. Créditos mensuales incluidos\n- 2. Créditos adicionales otorgados o comprados\n\nLa validez depende del tipo de crédito.\n\n- **Créditos mensuales incluidos**: se otorgan a una cuenta individual de Teacher y pueden transferirse al período siguiente.\n- **Créditos adicionales**: se otorgan a una cuenta individual de Teacher, pueden transferirse al período siguiente y son válidos durante 1 año desde la fecha de aprobación.\n\nPuedes consultar los créditos restantes y el historial de uso en **Setting > AI Credit**.",
+      "Esta guía se aplica a admins principales que operan créditos de organización para agencias, empresas, instituciones o socios de contenido.\n\n### Otorgar créditos de Admin\n\nLos créditos de Admin se otorgan en bloque según el monto contratado. Si se necesitan más créditos de Admin, se gestionan mediante un contrato adicional. La fecha de referencia se establece automáticamente como la fecha de inicio del contrato de la organización.\n\n### Créditos mensuales para Teachers\n\nLos créditos mensuales de Teacher se otorgan cada mes a las **00:00:00 UTC**, según la fecha de inicio del contrato o la fecha designada para la cuenta. Si la fecha de otorgamiento es 29, 30 o 31 y esa fecha no existe en un mes, los créditos se otorgan el último día de ese mes.\n\n- Ejemplo: si la fecha de referencia es el 31 de marzo, los otorgamientos ocurren el 30 de abril, el 31 de mayo y el 30 de junio.\n- En febrero de un año no bisiesto, los créditos se otorgan el 28 de febrero.\n- Los Teachers que se unen a mitad de mes reciben los créditos incluidos inmediatamente después de la verificación de la cuenta.\n- Cuando un Teacher se va o se desvincula de la organización, el uso de AI Credit se desactiva inmediatamente.\n- Si un Teacher vuelve a unirse a la misma empresa después de haber recibido los créditos de ese mes, no se otorgan créditos de nuevo.\n- Si un Teacher se une a otra empresa, los créditos mensuales se otorgan con base en la nueva organización.\n\n### Solicitudes de créditos adicionales\n\nLos Teachers pueden hacer clic en **Request credits** para solicitar más créditos al admin de su organización. Cuando el admin aprueba, los créditos se deducen del saldo compartido de Admin y se otorgan inmediatamente al Teacher.\n\nNo existe una función dentro del producto para que un Admin u organización solicite créditos a un admin principal. En ese caso, contacta directamente al admin principal asignado, y los créditos se otorgan después de completar el contrato adicional.\n\n### Editar información de otorgamiento\n\n- **Otorgar créditos adicionales de Admin**: se otorgan inmediatamente y se suman al saldo existente.\n- **Otorgar créditos adicionales de Teacher**: se otorgan inmediatamente y se suman al saldo existente.\n- **Cambiar la cantidad mensual de créditos de Teacher**: se aplica desde el siguiente otorgamiento.",
+      "La gestión de reembolsos y cancelaciones depende del tipo de crédito y del estado de la tarea.\n\n- **Créditos mensuales incluidos**: no son reembolsables. Si el usuario se va o se desvincula de la organización, el uso se detiene inmediatamente.\n- **Créditos adicionales**: no son reembolsables. Si el usuario se va o se desvincula de la organización, el uso se detiene inmediatamente.\n- **Cancelar una tarea de IA a mitad del proceso**: los créditos se deducen solo por los tokens usados hasta la cancelación, y la parte no usada se devuelve.\n- **Error del sistema**: si un error del motor de IA o del sistema impide proporcionar resultados, los créditos reservados se restauran por completo."
+    ],
+    faqSection: "AI Credits",
+    faqMarker: "créditos mensuales restantes",
+    faqBody: "### AI Credits\n\n**Q. Todavía tengo créditos mensuales restantes. ¿Se transfieren al mes siguiente?**\n\nSí. La política de AI Credit indica que los créditos mensuales incluidos pueden transferirse al período siguiente. Puedes consultar tus créditos restantes y la próxima fecha de recarga en **Setting > AI Credit**.\n\n**Q. ¿Qué debo hacer si no tengo créditos suficientes?**\n\nPuedes comprar un paquete de créditos adicional o solicitar más créditos al admin de tu organización. Si eres Teacher de una organización, usa **Request credits**; una vez que el admin apruebe, los créditos se otorgan inmediatamente.\n\n**Q. Si detengo una tarea de IA a mitad del proceso, ¿recibiré un reembolso?**\n\nSi cancelas a mitad del proceso, los créditos se deducen solo por los tokens usados por los resultados generados hasta la cancelación. La parte no usada se devuelve.\n\n**Q. ¿Qué ocurre si la IA devuelve un error?**\n\nSi un error del motor de IA o del sistema impide proporcionar resultados, todos los créditos reservados se restauran.\n\n**Q. ¿Qué ocurre con mis créditos restantes si me voy?**\n\nSi te vas o te desvinculan de una organización, el uso de AI Credit se desactiva inmediatamente. Los créditos mensuales incluidos y los créditos adicionales no son reembolsables.\n\n**Q. ¿Dónde puedo ver mi historial de uso de créditos?**\n\nPuedes revisar el uso mensual de créditos en **Setting > AI Credit**, en **Usage History**."
+  },
+  "ja": {
+    faqTree: {
+      title: "11. よくある質問 (FAQ)",
+      description: "LumiTeachの利用中によくある質問への回答"
+    },
+    manualTree: {
+      title: "10. AI Creditsの仕組み",
+      description: "AI Creditsの付与、使用、差し引き、返還の仕組み"
+    },
+    article: {
+      title: "AI Creditsの仕組み",
+      desc: "AI Creditsの種類、使用量の目安、差し引きルール、Adminでの運用、返還処理について確認できます。",
+      note: "AI Creditsは、使用するAI機能と実際のAI処理量に応じて差し引かれます。月次付与クレジットと追加クレジットでは適用ルールが異なります。",
+      sections: [
+        "LumiTeach AIについて",
+        "AI Creditsとは",
+        "クレジット種類の概要",
+        "AI機能別の使用量目安",
+        "クレジットの確認と差し引き方法",
+        "クレジットの消費順序と有効期限",
+        "Adminクレジット運用ガイド",
+        "返還およびキャンセルポリシー"
+      ]
+    },
+    body: [
+      "LumiTeachでは、教材を作成したり使用したりする過程でAI機能を利用できます。AIは、授業用・学習用コンテンツをより速く作成し、内容を整え、LessonsやAssignmentsに適用するのに役立ちます。\n\nAI機能は次の領域で使用されます。\n\n- **Edit Lesson**: Rewrite、With AI\n- **Start Teaching**: Brainstorming結果の整理 (Wordcloud、Classification、Mindmap)\n- **Admin**: Curriculumタグ付け、Contentメタデータタグ付け、With AI",
+      "**AI Credits**は、LumiTeachプラットフォーム全体でAI機能を実行するために使われる単位です。基本ルールは **1クレジット = 1トークン** です。トークンは、LLMがテキストや画像を処理するときに使う処理単位です。\n\nプランによっては、月次付与クレジットが毎月自動で付与されます。クレジットが不足した場合は、追加クレジットパックを購入するか、所属組織のadminに追加クレジットをリクエストできます。",
+      "LumiTeachでは、主に2種類のAI Creditsを使用します。\n\n### Adminクレジット\n\n- 機関、企業、代理店、コンテンツパートナーのadminが使用します。\n- 契約に基づき、共有Adminプールとして付与されます。\n- With AI、Curriculumタグ付け、Contentメタデータタグ付けなど、AdminのAI機能で使用されます。\n- 組織内の教師に共有または移管できます。\n\n### Serviceクレジット\n\n- LumiTeachサービス内の個別Teacherアカウントが使用します。\n- 毎月付与されるか、購入またはadmin承認によって追加されます。\n- With AI、Rewrite、Brainstorming結果の整理に使用されます。\n- Teacherアカウント間で直接移管することはできません。\n\nAdminクレジットとServiceクレジットは別の種類ですが、どこでも **1クレジットの価値は同じ** で、同じトークン基準に従います。",
+      "クレジット使用量は、実際に使用されたトークン量に基づいて計算されます。以下の数値は目安であり、アップロードした資料、画像数、生成結果によって変動することがあります。\n\n### With AI\n\n- テキストのアップロード: 約 **100クレジット**\n- テキスト + 画像のアップロード: 約 **100クレジット**\n- 動画のアップロード: 約 **150クレジット**\n- 利用可能プラン: Free以上\n\n### Brainstorming board\n\n- Wordcloud: 約 **3クレジット**\n- Classification: 約 **3クレジット**\n- Mindmap: 約 **5クレジット**\n- 利用可能プラン: Free以上\n\n### Rewrite\n\n- Rewrite: 約 **1クレジット**\n- 利用可能プラン: Free以上\n\n### Auto-Tagging (Admin)\n\n- Curriculumタグ付け: 約 **10クレジット**\n- Contentタグ付け: 約 **10クレジット**\n- 利用可能プラン: Pro以上\n\nWith AIの推定使用量は、1回の実行で10個のアクティビティを生成する想定に基づきます。この基準は、サービス運用データに応じて定期的に再計算される場合があります。",
+      "AI機能では、正確なトークン使用量がAIモデル実行後に確定するため、クレジットの確認と差し引きは2段階で行われます。\n\n### 事前確認\n\nAI機能を実行する前に、LumiTeachは必要なトークン数を見積もり、クレジットに換算します。現在の残高が見積もり必要クレジットより少ない場合、その機能は実行できません。\n\n### 実行後精算\n\nAI結果が正常に生成されると、実際に使用されたトークンに基づいて最終的な差し引きが行われます。タスクを途中でキャンセルした場合、キャンセル時点までに生成された結果で使用されたトークン分のみが差し引かれます。AIエンジンまたはシステムエラーにより結果を提供できなかった場合、予約されたクレジットはすべて復元されます。",
+      "クレジットは次の順序で消費されます。\n\n- 1. 月次付与クレジット\n- 2. 追加付与または購入クレジット\n\n有効期限はクレジット種類によって異なります。\n\n- **月次付与クレジット**: 個別Teacherアカウントに付与され、翌月以降への繰り越し対象です。\n- **追加クレジット**: 個別Teacherアカウントに付与され、翌月以降への繰り越し対象で、承認日から1年間有効です。\n\n残りクレジットと使用履歴は **Setting > AI Credit** で確認できます。",
+      "このガイドは、代理店、企業、機関、コンテンツパートナー向けに組織クレジットを運用するトップレベルadminを対象としています。\n\n### Adminクレジットの付与\n\nAdminクレジットは、契約金額に基づいて一括付与されます。さらにAdminクレジットが必要な場合は、追加契約として処理されます。基準日は、組織の契約開始日に自動設定されます。\n\n### Teachersへの月次クレジット\n\nTeacherの月次クレジットは、契約開始日またはアカウントごとの指定日に基づき、毎月 **00:00:00 UTC** に付与されます。付与日が29日、30日、31日で、その日付が存在しない月の場合、その月の最終日に付与されます。\n\n- 例: 基準日が3月31日の場合、4月30日、5月31日、6月30日に付与されます。\n- うるう年でない2月は、2月28日に付与されます。\n- 月の途中で参加したTeachersには、アカウント確認後すぐに付与クレジットが付与されます。\n- Teacherが組織を離れる、または組織との連携を解除されると、AI Creditの使用は直ちに無効になります。\n- Teacherがその月のクレジットをすでに受け取った後、同じ会社に再参加しても、クレジットは再付与されません。\n- Teacherが別の会社に参加した場合、月次クレジットは新しい組織を基準に付与されます。\n\n### 追加クレジットのリクエスト\n\nTeachersは **Request credits** をクリックして、所属組織のadminに追加クレジットをリクエストできます。adminが承認すると、共有Adminプールからクレジットが差し引かれ、Teacherに即時付与されます。\n\nAdminまたは組織がトップレベルadminへクレジットをリクエストするための製品内機能はありません。その場合は、担当トップレベルadminへ直接連絡し、追加契約完了後にクレジットが付与されます。\n\n### 付与情報の編集\n\n- **追加Adminクレジットを付与**: 即時付与され、既存残高に追加されます。\n- **追加Teacherクレジットを付与**: 即時付与され、既存残高に追加されます。\n- **Teacherの月次クレジット量を変更**: 次回付与分から適用されます。",
+      "返還およびキャンセル処理は、クレジット種類とタスク状態によって異なります。\n\n- **月次付与クレジット**: 返金対象外です。ユーザーが退会する、または組織との連携を解除されると、使用は直ちに停止されます。\n- **追加クレジット**: 返金対象外です。ユーザーが退会する、または組織との連携を解除されると、使用は直ちに停止されます。\n- **AIタスクを途中でキャンセル**: キャンセル時点までに使用されたトークン分のみが差し引かれ、未使用分は返還されます。\n- **システムエラー**: AIエンジンまたはシステムエラーにより結果を提供できなかった場合、予約されたクレジットは全額復元されます。"
+    ],
+    faqSection: "AI Credits",
+    faqMarker: "月次付与クレジットが残っています",
+    faqBody: "### AI Credits\n\n**Q. 月次付与クレジットが残っています。翌月に繰り越されますか？**\n\nはい。AI Creditポリシーでは、月次付与クレジットは翌月以降への繰り越し対象として案内されています。残りクレジットと次回補充予定日は **Setting > AI Credit** で確認できます。\n\n**Q. クレジットが足りない場合はどうすればよいですか？**\n\n追加クレジットパックを購入するか、所属組織のadminに追加クレジットをリクエストできます。組織のTeacherの場合は **Request credits** を使用してください。adminが承認すると、クレジットはすぐに付与されます。\n\n**Q. AIタスクを途中で停止した場合、返還されますか？**\n\n途中でキャンセルした場合、キャンセル時点までに生成された結果で使用されたトークン分のみが差し引かれます。未使用分は返還されます。\n\n**Q. AIがエラーを返した場合はどうなりますか？**\n\nAIエンジンまたはシステムエラーにより結果を提供できなかった場合、予約されたクレジットはすべて復元されます。\n\n**Q. 退会した場合、残りクレジットはどうなりますか？**\n\n退会する、または組織との連携を解除されると、AI Creditの使用は直ちに無効になります。月次付与クレジットと追加クレジットは返金対象外です。\n\n**Q. クレジット使用履歴はどこで確認できますか？**\n\n月ごとのクレジット使用量は **Setting > AI Credit** の **Usage History** で確認できます。"
+  },
+  "vi": {
+    faqTree: {
+      title: "11. Câu hỏi thường gặp (FAQ)",
+      description: "Câu trả lời cho các câu hỏi thường gặp khi sử dụng LumiTeach"
+    },
+    manualTree: {
+      title: "10. Cách hoạt động của AI Credits",
+      description: "Cách AI Credits được cấp, sử dụng, khấu trừ và hoàn lại"
+    },
+    article: {
+      title: "Cách hoạt động của AI Credits",
+      desc: "Tìm hiểu cách AI Credits hoạt động, bao gồm loại tín dụng, ước tính sử dụng, quy tắc khấu trừ, vận hành Admin và xử lý hoàn lại.",
+      note: "AI Credits được khấu trừ dựa trên tính năng AI bạn sử dụng và lượng xử lý AI thực tế. Tín dụng hằng tháng được cấp kèm gói và tín dụng bổ sung tuân theo các quy tắc khác nhau.",
+      sections: [
+        "Giới thiệu về LumiTeach AI",
+        "AI Credits là gì?",
+        "Tổng quan các loại tín dụng",
+        "Ước tính sử dụng theo tính năng AI",
+        "Cách kiểm tra và khấu trừ tín dụng",
+        "Thứ tự sử dụng và thời hạn tín dụng",
+        "Hướng dẫn vận hành tín dụng cho Admin",
+        "Chính sách hoàn lại và hủy"
+      ]
+    },
+    body: [
+      "Trong LumiTeach, bạn có thể dùng các tính năng AI khi tạo và sử dụng tài liệu giảng dạy. AI giúp bạn tạo nội dung dạy và học nhanh hơn, tinh chỉnh nội dung và áp dụng vào Lessons hoặc Assignments.\n\nCác tính năng AI được dùng trong những khu vực sau.\n\n- **Edit Lesson**: Rewrite, With AI\n- **Start Teaching**: sắp xếp kết quả Brainstorming (Wordcloud, Classification, Mindmap)\n- **Admin**: gắn thẻ Curriculum, gắn thẻ siêu dữ liệu Content, With AI",
+      "**AI Credits** là đơn vị được dùng để chạy các tính năng AI trên toàn bộ nền tảng LumiTeach. Quy tắc cơ bản là **1 tín dụng = 1 token**. Token là đơn vị xử lý mà LLM sử dụng khi xử lý văn bản và hình ảnh.\n\nTùy theo gói của bạn, tín dụng hằng tháng có thể được cấp tự động mỗi tháng. Nếu hết tín dụng, bạn có thể mua gói tín dụng bổ sung hoặc yêu cầu thêm tín dụng từ admin của tổ chức.",
+      "LumiTeach sử dụng hai loại AI Credits chính.\n\n### Tín dụng Admin\n\n- Được dùng bởi admin tại tổ chức, công ty, đại lý hoặc đối tác nội dung.\n- Được cấp dưới dạng quỹ Admin dùng chung dựa trên hợp đồng.\n- Được dùng cho các tính năng AI của Admin như With AI, gắn thẻ Curriculum và gắn thẻ siêu dữ liệu Content.\n- Có thể được chia sẻ hoặc chuyển cho giáo viên trong tổ chức.\n\n### Tín dụng Service\n\n- Được dùng bởi từng tài khoản Teacher trong dịch vụ LumiTeach.\n- Được cấp hằng tháng hoặc được thêm thông qua mua thêm hay admin phê duyệt.\n- Được dùng cho With AI, Rewrite và sắp xếp kết quả Brainstorming.\n- Không thể chuyển trực tiếp giữa các tài khoản Teacher.\n\nTín dụng Admin và tín dụng Service là hai loại riêng biệt, nhưng **1 tín dụng có cùng giá trị** ở mọi nơi và tuân theo cùng một tiêu chuẩn token.",
+      "Mức sử dụng tín dụng được tính từ lượng token thực tế. Các con số dưới đây là ước tính và có thể thay đổi tùy theo tài liệu tải lên, số lượng hình ảnh và kết quả được tạo.\n\n### With AI\n\n- Tải lên văn bản: khoảng **100 tín dụng**\n- Tải lên văn bản + hình ảnh: khoảng **100 tín dụng**\n- Tải lên video: khoảng **150 tín dụng**\n- Gói khả dụng: Free trở lên\n\n### Brainstorming board\n\n- Wordcloud: khoảng **3 tín dụng**\n- Classification: khoảng **3 tín dụng**\n- Mindmap: khoảng **5 tín dụng**\n- Gói khả dụng: Free trở lên\n\n### Rewrite\n\n- Rewrite: khoảng **1 tín dụng**\n- Gói khả dụng: Free trở lên\n\n### Auto-Tagging (Admin)\n\n- Gắn thẻ Curriculum: khoảng **10 tín dụng**\n- Gắn thẻ Content: khoảng **10 tín dụng**\n- Gói khả dụng: Pro trở lên\n\nƯớc tính sử dụng With AI dựa trên việc tạo 10 hoạt động cho mỗi lần chạy, và tiêu chuẩn này có thể được tính lại định kỳ dựa trên dữ liệu vận hành dịch vụ.",
+      "Các tính năng AI kiểm tra và khấu trừ tín dụng theo hai bước vì lượng token chính xác chỉ được xác nhận sau khi mô hình AI chạy.\n\n### Kiểm tra trước\n\nTrước khi một tính năng AI chạy, LumiTeach ước tính số token cần thiết và chuyển đổi thành tín dụng. Nếu số dư hiện tại thấp hơn số tín dụng ước tính cần thiết, tính năng đó không thể chạy.\n\n### Quyết toán sau\n\nKhi kết quả AI được tạo thành công, khoản khấu trừ cuối cùng dựa trên số token thực tế đã sử dụng. Nếu bạn hủy tác vụ giữa chừng, tín dụng chỉ bị khấu trừ cho các token được dùng bởi kết quả đã tạo đến thời điểm hủy. Nếu lỗi từ engine AI hoặc hệ thống khiến kết quả không được cung cấp, toàn bộ tín dụng đã giữ sẽ được khôi phục.",
+      "Tín dụng được sử dụng theo thứ tự sau.\n\n- 1. Tín dụng hằng tháng được cấp kèm gói\n- 2. Tín dụng bổ sung được cấp hoặc đã mua\n\nThời hạn phụ thuộc vào loại tín dụng.\n\n- **Tín dụng hằng tháng được cấp kèm gói**: được cấp cho từng tài khoản Teacher và có thể chuyển sang kỳ tiếp theo.\n- **Tín dụng bổ sung**: được cấp cho từng tài khoản Teacher, có thể chuyển sang kỳ tiếp theo và có hiệu lực trong 1 năm kể từ ngày phê duyệt.\n\nBạn có thể kiểm tra tín dụng còn lại và lịch sử sử dụng trong **Setting > AI Credit**.",
+      "Hướng dẫn này áp dụng cho admin cấp cao vận hành tín dụng tổ chức cho đại lý, công ty, tổ chức hoặc đối tác nội dung.\n\n### Cấp tín dụng Admin\n\nTín dụng Admin được cấp hàng loạt theo số lượng trong hợp đồng. Nếu cần thêm tín dụng Admin, việc này được xử lý thông qua hợp đồng bổ sung. Ngày tham chiếu được tự động đặt là ngày bắt đầu hợp đồng của tổ chức.\n\n### Tín dụng hằng tháng cho Teachers\n\nTín dụng hằng tháng của Teacher được cấp mỗi tháng vào **00:00:00 UTC** dựa trên ngày bắt đầu hợp đồng hoặc ngày chỉ định theo từng tài khoản. Nếu ngày cấp là ngày 29, 30 hoặc 31 và ngày đó không tồn tại trong một tháng, tín dụng sẽ được cấp vào ngày cuối cùng của tháng đó.\n\n- Ví dụ: nếu ngày tham chiếu là ngày 31 tháng 3, các lần cấp sẽ diễn ra vào ngày 30 tháng 4, ngày 31 tháng 5 và ngày 30 tháng 6.\n- Trong tháng 2 của năm không nhuận, tín dụng được cấp vào ngày 28 tháng 2.\n- Teachers tham gia giữa tháng nhận tín dụng được cấp kèm gói ngay sau khi xác minh tài khoản.\n- Khi Teacher rời khỏi hoặc bị hủy liên kết khỏi tổ chức, việc sử dụng AI Credit sẽ bị vô hiệu hóa ngay lập tức.\n- Nếu Teacher tham gia lại cùng một công ty sau khi đã nhận tín dụng của tháng đó, tín dụng sẽ không được cấp lại.\n- Nếu Teacher tham gia một công ty khác, tín dụng hằng tháng sẽ được cấp dựa trên tổ chức mới.\n\n### Yêu cầu tín dụng bổ sung\n\nTeachers có thể nhấp **Request credits** để yêu cầu thêm tín dụng từ admin của tổ chức. Khi admin phê duyệt, tín dụng sẽ được khấu trừ từ quỹ Admin dùng chung và được cấp ngay cho Teacher.\n\nKhông có tính năng trong sản phẩm để Admin hoặc tổ chức yêu cầu tín dụng từ admin cấp cao. Trong trường hợp đó, hãy liên hệ trực tiếp với admin cấp cao phụ trách, và tín dụng sẽ được cấp sau khi hoàn tất hợp đồng bổ sung.\n\n### Chỉnh sửa thông tin cấp tín dụng\n\n- **Cấp thêm tín dụng Admin**: được cấp ngay và cộng vào số dư hiện có.\n- **Cấp thêm tín dụng Teacher**: được cấp ngay và cộng vào số dư hiện có.\n- **Thay đổi lượng tín dụng Teacher hằng tháng**: áp dụng từ lần cấp tiếp theo.",
+      "Việc hoàn lại và xử lý hủy phụ thuộc vào loại tín dụng và trạng thái tác vụ.\n\n- **Tín dụng hằng tháng được cấp kèm gói**: không được hoàn tiền. Nếu người dùng rời khỏi hoặc bị hủy liên kết khỏi tổ chức, việc sử dụng sẽ dừng ngay lập tức.\n- **Tín dụng bổ sung**: không được hoàn tiền. Nếu người dùng rời khỏi hoặc bị hủy liên kết khỏi tổ chức, việc sử dụng sẽ dừng ngay lập tức.\n- **Hủy tác vụ AI giữa chừng**: tín dụng chỉ bị khấu trừ cho các token đã dùng đến thời điểm hủy, và phần chưa sử dụng sẽ được trả lại.\n- **Lỗi hệ thống**: nếu lỗi từ engine AI hoặc hệ thống khiến kết quả không được cung cấp, tín dụng đã giữ sẽ được khôi phục toàn bộ."
+    ],
+    faqSection: "AI Credits",
+    faqMarker: "vẫn còn tín dụng hằng tháng",
+    faqBody: "### AI Credits\n\n**Q. Tôi vẫn còn tín dụng hằng tháng. Chúng có được chuyển sang tháng sau không?**\n\nCó. Chính sách AI Credit cho biết tín dụng hằng tháng được cấp kèm gói có thể chuyển sang kỳ tiếp theo. Bạn có thể kiểm tra tín dụng còn lại và lịch nạp tiếp theo trong **Setting > AI Credit**.\n\n**Q. Tôi nên làm gì nếu không đủ tín dụng?**\n\nBạn có thể mua gói tín dụng bổ sung hoặc yêu cầu thêm tín dụng từ admin của tổ chức. Nếu bạn là Teacher thuộc tổ chức, hãy dùng **Request credits**; sau khi admin phê duyệt, tín dụng sẽ được cấp ngay.\n\n**Q. Nếu tôi dừng tác vụ AI giữa chừng, tôi có được hoàn lại không?**\n\nNếu bạn hủy giữa chừng, tín dụng chỉ bị khấu trừ cho các token được dùng bởi kết quả đã tạo đến thời điểm hủy. Phần chưa sử dụng sẽ được trả lại.\n\n**Q. Điều gì xảy ra nếu AI trả về lỗi?**\n\nNếu lỗi từ engine AI hoặc hệ thống khiến kết quả không được cung cấp, toàn bộ tín dụng đã giữ sẽ được khôi phục.\n\n**Q. Điều gì xảy ra với tín dụng còn lại nếu tôi rời đi?**\n\nNếu bạn rời khỏi hoặc bị hủy liên kết khỏi một tổ chức, việc sử dụng AI Credit sẽ bị vô hiệu hóa ngay lập tức. Tín dụng hằng tháng được cấp kèm gói và tín dụng bổ sung không được hoàn tiền.\n\n**Q. Tôi có thể xem lịch sử sử dụng tín dụng ở đâu?**\n\nBạn có thể xem mức sử dụng tín dụng hằng tháng trong **Setting > AI Credit**, tại **Usage History**."
+  }
+};
+
+Object.entries(aiCreditsLocalizedTranslations).forEach(([language, values]) => {
+  const languageTranslations = translations[language];
+  if (!languageTranslations) return;
+
+  languageTranslations.manualTree = languageTranslations.manualTree || {};
+  languageTranslations.articles = languageTranslations.articles || {};
+  languageTranslations.articleBodies = languageTranslations.articleBodies || {};
+
+  Object.assign(languageTranslations.manualTree, {
+    "cat-ai-credits": values.manualTree,
+    "cat-faq": Object.assign({}, languageTranslations.manualTree["cat-faq"] || {}, values.faqTree)
+  });
+
+  languageTranslations.articles["cat-ai-credits"] = values.article;
+
+  const existingFaqArticle = languageTranslations.articles["cat-faq"] || {};
+  const existingFaqSections = Array.isArray(existingFaqArticle.sections)
+    ? existingFaqArticle.sections.filter((section) => section !== values.faqSection)
+    : [];
+  languageTranslations.articles["cat-faq"] = Object.assign({}, existingFaqArticle, {
+    sections: [...existingFaqSections, values.faqSection]
+  });
+
+  languageTranslations.articleBodies["cat-ai-credits"] = values.body;
+
+  const existingFaqBodies = Array.isArray(languageTranslations.articleBodies["cat-faq"])
+    ? languageTranslations.articleBodies["cat-faq"].filter((body) => !body.includes(values.faqMarker))
+    : [];
+  languageTranslations.articleBodies["cat-faq"] = [...existingFaqBodies, values.faqBody];
+});
+// END AI CREDITS LOCALIZED TRANSLATION PATCH
