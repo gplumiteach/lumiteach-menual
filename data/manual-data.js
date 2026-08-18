@@ -1145,9 +1145,19 @@ Object.entries(renumberedTemplateNumbers).forEach(([key, number]) => {
 });
 // END TOOL KIT CONTENT PATCH
 
+const aiCreditsCategory = {
+  key: 'cat-ai-credits',
+  title: '10. How AI Credits work',
+  description: 'AI Credit의 사용 방식, 차감 기준, 충전과 환불 정책',
+  children: []
+};
+if (!manualTree.some((category) => category.key === aiCreditsCategory.key)) {
+  manualTree.push(aiCreditsCategory);
+}
+
 const faqCategory = {
   key: 'cat-faq',
-  title: '10. 자주 묻는 질문 (FAQ)',
+  title: '11. 자주 묻는 질문 (FAQ)',
   description: 'LumiTeach 사용 중 자주 묻는 질문과 답변',
   children: []
 };
@@ -1156,7 +1166,8 @@ if (!manualTree.some((category) => category.key === faqCategory.key)) {
 }
 
 Object.assign(articleTemplates, {
-  'cat-faq': ['10.', 'LumiTeach Help Center', '자주 묻는 질문 (FAQ)', 'LumiTeach를 사용하면서 자주 묻는 질문을 주제별로 모았습니다.', '찾는 내용이 없으면 각 기능 가이드를 참고하거나, 처음이라면 Get Started Guide를 먼저 읽어보세요.', ['시작 & 계정', '수업 만들기 (Edit Lesson)', '수업 진행 (Teaching)', '학생 화면 & 참여 (Student View)', '결과 확인', 'Idea Board / Whiteboard', '기타']]
+  'cat-ai-credits': ['10.', 'LumiTeach Help Center', 'How AI Credits work', 'LumiTeach AI 기능을 사용할 때 필요한 AI Credit의 종류, 사용량, 차감 방식, 운영 정책을 안내합니다.', 'AI Credit은 사용하는 기능과 실제 AI 처리량에 따라 차감됩니다. 월 제공 Credit과 추가 Credit은 적용 방식과 유효 기간이 다릅니다.', ['LumiTeach AI 소개', 'AI Credit이란?', 'Credit 종류 한눈에 보기', 'AI 기능별 예상 사용량', 'Credit 확인 및 차감 방식', 'Credit 사용 순서와 유효 기간', 'Admin Credit 운영 가이드', '환불 및 취소 정책']],
+  'cat-faq': ['11.', 'LumiTeach Help Center', '자주 묻는 질문 (FAQ)', 'LumiTeach를 사용하면서 자주 묻는 질문을 주제별로 모았습니다.', '찾는 내용이 없으면 각 기능 가이드를 참고하거나, 처음이라면 Get Started Guide를 먼저 읽어보세요.', ['시작 & 계정', '수업 만들기 (Edit Lesson)', '수업 진행 (Teaching)', '학생 화면 & 참여 (Student View)', '결과 확인', 'Idea Board / Whiteboard', '기타', 'AI Credits']]
 });
 
 const stripLeadingCategoryNumber = (title) => String(title || '').replace(/^\s*\d+\.\s*/, '');
@@ -2237,6 +2248,16 @@ Object.assign(articleBodies, {
 });
 
 Object.assign(articleBodies, {
+  'cat-ai-credits': [
+      "LumiTeach에서는 수업 자료를 만들거나 활용하는 과정에서 AI 기능을 사용할 수 있습니다. AI는 수업 및 학습 콘텐츠를 더 빠르게 만들고, 다듬고, Lesson이나 Assignment에 적용하는 데 도움을 줍니다.\n\nAI 기능은 다음 영역에서 사용됩니다.\n\n- **Edit Lesson**: Rewrite, AI Make\n- **Start Teaching**: Brainstorming 결과 정리(Wordcloud, Classification, Mindmap)\n- **Admin**: Curriculum tagging, Content metadata tagging, AI Make",
+      "**AI Credit**은 LumiTeach 플랫폼에서 AI 기능을 실행할 때 사용하는 단위입니다. 기본 기준은 **1 Credit = 1 token**이며, token은 LLM이 텍스트와 이미지를 처리할 때 사용하는 계산 단위입니다.\n\n사용 중인 플랜에 따라 매월 포함 Credit이 자동으로 지급될 수 있습니다. Credit이 부족하면 추가 Credit pack을 구매하거나, 소속 조직의 Admin에게 추가 Credit을 요청할 수 있습니다.",
+      "LumiTeach의 AI Credit은 크게 두 종류로 나뉩니다.\n\n### Admin credits\n\n- 기관, 회사, 에이전시, 콘텐츠 파트너의 Admin이 사용합니다.\n- 계약 시 합의한 전체 Credit이 Admin pool로 부여됩니다.\n- Admin 영역의 AI Make, Curriculum tagging, Content metadata tagging 등에 사용됩니다.\n- 조직 내 교사에게 공유하거나 이관할 수 있습니다.\n\n### Service credits\n\n- 개별 Teacher 계정이 서비스에서 사용하는 Credit입니다.\n- 매월 제공되거나 추가 구매 및 승인으로 지급됩니다.\n- Edit Lesson의 AI Make, Rewrite, Teaching 중 Brainstorming 결과 정리 등에 사용됩니다.\n- 다른 Teacher 계정으로 직접 이전할 수 없습니다.\n\nAdmin credits와 Service credits는 종류가 다르지만, **1 Credit의 가치는 동일**하며 token 기준도 같습니다.",
+      "AI 기능별 Credit 사용량은 실제 token 사용량을 기준으로 계산됩니다. 아래 숫자는 운영 기준의 예상치이며, 업로드한 자료의 길이와 이미지 수, 생성 결과에 따라 달라질 수 있습니다.\n\n### AI Make\n\n- Upload text: 약 **100 credits**\n- Upload text + images: 약 **100 credits**\n- Upload video: 약 **150 credits**\n- 사용 가능 플랜: Free 이상\n\n### Brainstorming board\n\n- Wordcloud: 약 **3 credits**\n- Classification: 약 **3 credits**\n- Mindmap: 약 **5 credits**\n- 사용 가능 플랜: Free 이상\n\n### Rewrite\n\n- Rewrite: 약 **1 credit**\n- 사용 가능 플랜: Free 이상\n\n### Auto-Tagging (Admin)\n\n- Curriculum tagging: 약 **10 credits**\n- Content tagging: 약 **10 credits**\n- 사용 가능 플랜: Pro 이상\n\nAI Make 예상 사용량은 한 번에 Activity 10개를 생성하는 기준으로 산정되며, 실제 서비스 운영 데이터에 따라 주기적으로 조정될 수 있습니다.",
+      "AI 기능은 실행 전과 실행 후 두 단계로 Credit을 확인하고 차감합니다. AI 모델이 실제로 사용한 token 양은 실행이 끝난 뒤에 확정되기 때문입니다.\n\n### Pre-check\n\nAI 기능을 실행하기 전에 예상 token 수를 계산하고 Credit으로 환산합니다. 현재 잔액이 예상 필요 Credit보다 적으면 해당 기능을 실행할 수 없습니다.\n\n### Post-settlement\n\nAI 결과가 정상적으로 생성되면 실제 사용된 token을 기준으로 최종 Credit이 차감됩니다. 작업을 중간에 취소한 경우에는 취소 시점까지 생성된 결과에 사용된 token만큼만 차감됩니다. AI engine 또는 system error로 결과가 제공되지 않은 경우에는 예약되었던 Credit이 모두 복원됩니다.",
+      "Credit은 다음 순서로 사용됩니다.\n\n- 1. 월 제공 Credit\n- 2. 추가 지급 또는 구매한 Credit\n\nCredit의 유효 기간은 종류에 따라 다릅니다.\n\n- **월 제공 Credit**: 개별 Teacher 계정에 지급되며, 이월 가능합니다.\n- **추가 Credit**: 개별 Teacher 계정에 지급되며, 승인일로부터 1년 동안 유효합니다.\n\n잔여 Credit과 사용 내역은 **Setting > AI Credit**에서 확인할 수 있습니다.",
+      "이 내용은 기관, 회사, 에이전시, 콘텐츠 파트너의 Top-level Admin이 조직 Credit을 운영할 때 참고하는 기준입니다.\n\n### Admin credits 지급\n\nAdmin credits는 계약 시 합의한 수량만큼 조직 단위로 부여됩니다. 추가 Admin credits가 필요하면 별도 계약을 통해 진행합니다. 기준일은 조직 계약 시작일로 자동 설정됩니다.\n\n### Teacher 월 Credit 지급\n\nTeacher에게 지급되는 월 Credit은 계약 시작일 또는 계정별 지정일 기준으로 매월 **00:00:00 UTC**에 지급됩니다. 지급일이 29일, 30일, 31일인데 해당 월에 그 날짜가 없으면 그 달의 마지막 날에 지급됩니다.\n\n- 예: 3월 31일 기준이면 4월 30일, 5월 31일, 6월 30일 순서로 지급됩니다.\n- 윤년이 아닌 2월은 2월 28일에 지급됩니다.\n- 중간에 합류한 Teacher는 계정 인증이 완료되면 즉시 포함 Credit을 받습니다.\n- Teacher가 조직을 탈퇴하거나 연결이 해제되면 AI Credit 사용 권한은 즉시 중지됩니다.\n- 같은 회사에 재가입했고 해당 월 Credit을 이미 받았다면 다시 지급되지 않습니다.\n- 다른 회사로 재가입하면 새 조직 기준에 따라 월 Credit이 지급됩니다.\n\n### 추가 Credit 요청\n\nTeacher는 **Request credits**를 통해 조직 Admin에게 추가 Credit을 요청할 수 있습니다. Admin이 승인하면 조직의 Admin pool에서 Credit이 차감되고 Teacher에게 즉시 지급됩니다.\n\nAdmin 또는 조직이 Top-level Admin에게 추가 Credit을 요청하는 기능은 제품 안에 제공되지 않습니다. 이 경우 담당 Top-level Admin에게 별도로 요청하고, 추가 계약 후 Credit이 지급됩니다.\n\n### 지급 정보 변경\n\n- **추가 Admin credits 지급**: 즉시 지급되며 기존 잔액에 더해집니다.\n- **추가 Teacher credits 지급**: 즉시 지급되며 기존 잔액에 더해집니다.\n- **Teacher 월 Credit 수량 변경**: 다음 지급일부터 적용됩니다.",
+      "환불 및 취소 정책은 Credit 종류와 실행 상태에 따라 다릅니다.\n\n- **월 제공 Credit**: 환불되지 않습니다. 조직 탈퇴 또는 연결 해제 시 사용이 즉시 중지됩니다.\n- **추가 Credit**: 환불되지 않습니다. 조직 탈퇴 또는 연결 해제 시 사용이 즉시 중지됩니다.\n- **AI 작업 중간 취소**: 취소 시점까지 생성된 결과에 사용된 token만 차감되고, 사용되지 않은 Credit은 반환됩니다.\n- **System error**: 결과가 제공되지 않은 AI engine 또는 system error가 발생하면 예약된 Credit이 100% 복원됩니다."
+  ],
   'cat-faq': [
       "**Q. LumiTeach를 처음 쓰는데 어디서부터 시작하나요?**\n\nGet Started Guide를 따라 가세요. 계정 설정 → 첫 수업 만들기 → 수업 진행까지 순서대로 안내합니다. Step 1–3만 따라 해도 첫 수업을 진행할 수 있습니다.\n\n**Q. 프로필과 소개(Bio)는 어디서 바꾸나요?**\n\nSetting에서 이름·소개 등 기본 정보를 수정합니다. 자세한 내용은 Setting 가이드를 참고하세요.\n\n**Q. 제가 쓴 소개글은 어디에 표시되나요?**\n\nSetting의 Bio는 다른 사용자가 보는 크리에이터 페이지(Explore)에 함께 표시됩니다. Edit에서 수정한 Bio가 그대로 반영됩니다.",
       "**Q. 수업(Lesson)에 활동을 어떻게 추가하나요?**\n\n편집 화면 왼쪽의 + Manual(직접 골라 추가) 또는 AI Make(AI 자동 생성)을 사용합니다. + Manual을 누르면 Create Manually 창에서 카테고리별로 활동을 고를 수 있습니다.\n\n**Q. 어떤 활동 종류가 있나요?**\n\nGeneral(기본 슬라이드), Embed(외부 콘텐츠), Quiz(정답이 있는 문제), Discussion(토론·투표), Idea Board(Brainstorming·Whiteboard·Ideas), Games가 있습니다.\n\n**Q. AI Make는 무엇인가요?**\n\nAI의 도움을 받아 슬라이드를 자동으로 만들어 주는 기능입니다. 직접 만들기(+ Manual)와 함께 슬라이드 추가 방법으로 제공됩니다.\n\n**Q. 학생에게 보이기 전에 미리 확인할 수 있나요?**\n\n있습니다. 상단의 Preview로 학생 화면을 미리 볼 수 있습니다.\n\n**Q. Self Study는 무엇인가요?**\n\n만든 Lesson을 학생이 스스로 학습하도록 배포하는 방식입니다. 편집 화면 상단에서 선택할 수 있습니다.\n\n**Q. 이미 만든 활동을 다시 쓸 수 있나요?**\n\nMy Storage에 저장된 활동을 불러와 재사용할 수 있습니다. Create Manually 창의 My Storage 탭에서도 접근할 수 있습니다.",
@@ -2244,7 +2265,8 @@ Object.assign(articleBodies, {
       "**Q. 학생 화면에 \"Please wait...\"만 보여요.**\n\n아직 선생님이 활동을 시작하지 않은 상태입니다. \"Please wait until your teacher starts the activity.\"는 대기 화면이며, 선생님이 활동을 시작하면 자동으로 넘어갑니다.\n\n**Q. 학생은 답을 어떻게 제출하나요?**\n\n입력칸에 답을 쓴 뒤 Submit 버튼을 누릅니다. 입력이 비어 있으면 버튼이 비활성(회색)이며, 내용을 적으면 활성화됩니다.\n\n**Q. 학생이 의견을 여러 번 낼 수 있나요?**\n\n활동 설정의 Response Limit으로 결정됩니다. One Time은 1회, Unlimited는 횟수 제한 없이 제출할 수 있습니다.\n\n**Q. 학생 닉네임을 표시하거나 숨길 수 있나요?**\n\n활동 설정의 Nickname Shown을 켜면 응답에 작성자 닉네임이 함께 표시됩니다.",
       "**Q. 학생 응답 결과는 어떻게 보나요?**\n\n활동을 마친 뒤 View Result(결과 보기)로 학생들의 응답을 정리해 확인합니다.\n\n**Q. 결과를 단어 구름이나 마인드맵으로 볼 수 있나요?**\n\n네. 활동 설정의 Classify Opinion Result를 켜면 Word Cloud / Classification / Mind Map 중에서 결과 형태를 고를 수 있습니다.\n\n**Q. 결과 자동 정리에 AI 크레딧이 차감되나요?**\n\n네. Classify Opinion Result(Word Cloud·Classification·Mind Map)는 AI를 사용하므로 크레딧이 차감됩니다(\"AI credits will be deducted\").",
       "**Q. 학생들이 직접 그림을 그리게 하려면?**\n\nIdea Board → Whiteboard 활동을 사용하세요. Artboard Style에서 빈 화면·모눈·영어 4선 노트·오선지 등 바탕을 고를 수 있습니다.\n\n**Q. 한 학생의 작업을 전체 학생에게 보여주려면?**\n\nWhiteboard의 Monitoring 화면에서 해당 학생 카드를 누른 뒤 Send to All을 선택하면 모든 학생 보드로 전송됩니다.\n\n**Q. 모든 학생의 작업을 한 번에 보려면?**\n\nWhiteboard의 Monitoring 화면에서 접속한 모든 학생의 보드를 그리드로 모아 실시간으로 확인할 수 있습니다. 제출을 마친 학생은 카드가 Complete로 표시됩니다.",
-      "**Q. 각 기능의 더 자세한 사용법은 어디서 보나요?**\n\n아래 가이드를 참고하세요.\n\n- Get Started Guide — 처음 시작하는 선생님을 위한 전체 흐름 안내\n- Edit Lesson — 활동 종류별 상세 설정(General·Embed·Quiz·Discussion·Idea Board·Games)\n- Tool Kit — 수업 중 도구(Normal·Timer·Competition·Draw·Math Tools)\n- Curriculum / Explore / My Storage / Setting — 관리 및 설정"
+      "**Q. 각 기능의 더 자세한 사용법은 어디서 보나요?**\n\n아래 가이드를 참고하세요.\n\n- Get Started Guide — 처음 시작하는 선생님을 위한 전체 흐름 안내\n- Edit Lesson — 활동 종류별 상세 설정(General·Embed·Quiz·Discussion·Idea Board·Games)\n- Tool Kit — 수업 중 도구(Normal·Timer·Competition·Draw·Math Tools)\n- Curriculum / Explore / My Storage / Setting — 관리 및 설정",
+      "### AI Credits\n\n**Q. 남은 월 제공 Credit은 다음 달로 이월되나요?**\n\n네. AI Credit 정책에서는 월 제공 Credit을 이월 가능으로 안내합니다. 잔여 Credit과 다음 지급 일정은 **Setting > AI Credit**에서 확인하세요.\n\n**Q. Credit이 부족하면 어떻게 하나요?**\n\n추가 Credit pack을 구매하거나 소속 조직의 Admin에게 추가 Credit을 요청할 수 있습니다. 조직 소속 Teacher라면 **Request credits**로 요청하고, Admin 승인 후 즉시 지급됩니다.\n\n**Q. AI 작업을 중간에 멈추면 환불되나요?**\n\n중간에 취소하면 취소 시점까지 생성된 결과에 사용된 token만큼만 차감됩니다. 아직 사용되지 않은 Credit은 반환됩니다.\n\n**Q. AI가 오류를 반환하면 어떻게 되나요?**\n\nAI engine 또는 system error로 결과가 제공되지 않은 경우에는 예약되었던 Credit이 100% 복원됩니다.\n\n**Q. 탈퇴하거나 조직 연결이 해제되면 남은 Credit은 어떻게 되나요?**\n\n조직을 탈퇴하거나 연결이 해제되면 AI Credit 사용 권한은 즉시 중지됩니다. 월 제공 Credit과 추가 Credit은 환불되지 않습니다.\n\n**Q. Credit 사용 내역은 어디서 볼 수 있나요?**\n\n**Setting > AI Credit**의 **Usage History**에서 월별 Credit 사용 내역을 확인할 수 있습니다."
   ]
 });
 
@@ -2778,6 +2800,7 @@ Object.assign(hubVisuals, {
   'storage-folder': { icon: '⌕', iconLibrary: 'phosphor', iconWeight: 'fill', iconType: 'list-magnifying-glass', bg: 'linear-gradient(135deg, #eaf1ff, #e9fff6)', color: '#0f7f78', size: '42px' },
   'storage-move': { icon: '▦', iconLibrary: 'phosphor', iconWeight: 'fill', iconType: 'folder-open', bg: 'linear-gradient(135deg, #e6f0ff, #fff7df)', color: '#2563e9', size: '36px' },
   'storage-trash': { icon: '⋯', iconLibrary: 'phosphor', iconWeight: 'fill', iconType: 'dots-three-circle', bg: 'linear-gradient(135deg, #f7f7f6, #eaf1ff)', color: '#233a78', size: '42px' },
+  'cat-ai-credits': { icon: 'AI', iconLibrary: 'phosphor', iconWeight: 'fill', iconType: 'sparkle', bg: 'linear-gradient(135deg, #fff1df, #f6f9ff)', color: '#204cff', size: '54px' },
   'cat-faq': { icon: '?', iconLibrary: 'phosphor', iconWeight: 'fill', iconType: 'question', bg: 'linear-gradient(135deg, #eaf1ff, #f6f9ff)', color: '#204cff', size: '54px' },
   'cat-class': { icon: 'Class', iconLibrary: 'phosphor', iconWeight: 'fill', iconType: 'users-three', bg: 'linear-gradient(135deg, #eaf1ff, #f6f9ff)', color: '#204cff', size: '34px' },
   'class-teaching-report': { icon: 'Teaching Report', iconLibrary: 'phosphor', iconWeight: 'fill', iconType: 'chart-bar', bg: 'linear-gradient(135deg, #eaf1ff, #e9fff6)', color: '#0f7f78', size: '34px' },
@@ -2808,6 +2831,7 @@ Object.assign(hubCovers, {
   'storage-folder': { icon: '⌕', iconLibrary: 'phosphor', iconWeight: 'fill', iconType: 'list-magnifying-glass', bg: 'linear-gradient(135deg, #eaf1ff, #e9fff6)', color: '#0f7f78', size: '64px' },
   'storage-move': { icon: '▦', iconLibrary: 'phosphor', iconWeight: 'fill', iconType: 'folder-open', bg: 'linear-gradient(135deg, #e6f0ff, #fff7df)', color: '#2563e9', size: '56px' },
   'storage-trash': { icon: '⋯', iconLibrary: 'phosphor', iconWeight: 'fill', iconType: 'dots-three-circle', bg: 'linear-gradient(135deg, #f7f7f6, #eaf1ff)', color: '#233a78', size: '64px' },
+  'cat-ai-credits': { icon: 'AI', iconLibrary: 'phosphor', iconWeight: 'fill', iconType: 'sparkle', bg: 'linear-gradient(135deg, #fff1df, #f6f9ff)', color: '#204cff', size: '72px' },
   'cat-faq': { icon: '?', iconLibrary: 'phosphor', iconWeight: 'fill', iconType: 'question', bg: 'linear-gradient(135deg, #eaf1ff, #f6f9ff)', color: '#204cff', size: '72px' },
   'cat-class': { icon: 'Class', iconLibrary: 'phosphor', iconWeight: 'fill', iconType: 'users-three', bg: 'linear-gradient(135deg, #eaf1ff, #f6f9ff)', color: '#204cff', size: '54px' },
   'class-teaching-report': { icon: 'Teaching Report', iconLibrary: 'phosphor', iconWeight: 'fill', iconType: 'chart-bar', bg: 'linear-gradient(135deg, #eaf1ff, #e9fff6)', color: '#0f7f78', size: '54px' },
@@ -2915,6 +2939,7 @@ const hubIconPaths = {
   'storage-folder': 'icon/illustration/name=Folder, Tone=Color.svg',
   'storage-move': 'icon/System/name=move.svg',
   'storage-trash': 'icon/illustration/name=Delete, Tone=Color.svg',
+  'cat-ai-credits': 'icon/System/name=AI-generated.svg',
   'cat-faq': 'icon/System/name=help.svg',
   'cat-class': 'icon/illustration/name=myclass, Tone=Color.svg',
   'class-teaching-report': 'icon/System/name=report.svg',

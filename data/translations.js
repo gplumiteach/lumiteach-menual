@@ -14899,3 +14899,72 @@ Object.entries(settingPageBodyTranslations).forEach(([language, bodies]) => {
   Object.assign(translations[language].articleBodies, bodies);
 });
 // END SETTING PAGE BODY TRANSLATION PATCH
+
+// BEGIN AI CREDITS MANUAL TRANSLATION PATCH
+const aiCreditsEnglishBody = [
+  "Across LumiTeach, you can use AI features while creating and using teaching materials. AI helps you produce teaching and learning content faster, refine it, and apply it to Lessons or Assignments.\n\nAI features are used in these areas.\n\n- **Edit Lesson**: Rewrite, AI Make\n- **Start Teaching**: Brainstorming result organization (Wordcloud, Classification, Mindmap)\n- **Admin**: Curriculum tagging, Content metadata tagging, AI Make",
+  "**AI Credits** are the units used to run AI features across the LumiTeach platform. The basic rule is **1 credit = 1 token**. A token is the processing unit used by the LLM when it handles text and images.\n\nDepending on your plan, included monthly credits may be granted automatically each month. If you run out of credits, you can purchase an additional credit pack or request more credits from your organization admin.",
+  "LumiTeach uses two main types of AI Credits.\n\n### Admin credits\n\n- Used by admins at institutions, companies, agencies, or content partners.\n- Granted as a shared admin pool based on the contract.\n- Used for Admin AI features such as AI Make, Curriculum tagging, and Content metadata tagging.\n- Can be shared or transferred to teachers in the organization.\n\n### Service credits\n\n- Used by individual Teacher accounts in the LumiTeach service.\n- Granted monthly or added through purchase or admin approval.\n- Used for AI Make, Rewrite, and Brainstorming result organization.\n- Cannot be transferred directly between Teacher accounts.\n\nAdmin credits and Service credits are separate types, but **1 credit has the same value** everywhere and follows the same token standard.",
+  "Credit usage is calculated from actual token usage. The numbers below are estimates and may vary depending on the uploaded material, number of images, and generated output.\n\n### AI Make\n\n- Upload text: about **100 credits**\n- Upload text + images: about **100 credits**\n- Upload video: about **150 credits**\n- Available plan: Free and above\n\n### Brainstorming board\n\n- Wordcloud: about **3 credits**\n- Classification: about **3 credits**\n- Mindmap: about **5 credits**\n- Available plan: Free and above\n\n### Rewrite\n\n- Rewrite: about **1 credit**\n- Available plan: Free and above\n\n### Auto-Tagging (Admin)\n\n- Curriculum tagging: about **10 credits**\n- Content tagging: about **10 credits**\n- Available plan: Pro and above\n\nEstimated AI Make usage is based on generating 10 activities per run, and the standard may be recalculated periodically based on service operations data.",
+  "AI features check and deduct credits in two steps because the exact token usage is confirmed only after the AI model runs.\n\n### Pre-check\n\nBefore an AI feature runs, LumiTeach estimates the required tokens and converts them to credits. If your current balance is lower than the estimated required credits, the feature cannot run.\n\n### Post-settlement\n\nWhen the AI result is generated successfully, the final deduction is based on the actual tokens used. If you cancel a task midway, credits are deducted only for the tokens used by the results generated up to cancellation. If an AI engine or system error prevents results from being provided, all reserved credits are restored.",
+  "Credits are consumed in this order.\n\n- 1. Monthly included credits\n- 2. Additional granted or purchased credits\n\nValidity depends on the credit type.\n\n- **Monthly included credits**: granted to an individual Teacher account and available for rollover.\n- **Additional credits**: granted to an individual Teacher account, available for rollover, and valid for 1 year from the approval date.\n\nYou can check your remaining credits and usage history in **Setting > AI Credit**.",
+  "This guide applies to top-level admins who operate organization credits for agencies, companies, institutions, or content partners.\n\n### Granting Admin credits\n\nAdmin credits are granted in bulk according to the contracted amount. If more Admin credits are needed, they are handled through an additional contract. The reference date is automatically set to the organization's contract start date.\n\n### Monthly credits for Teachers\n\nMonthly Teacher credits are granted every month at **00:00:00 UTC** based on the contract start date or account-specific designated date. If the grant date is the 29th, 30th, or 31st and that date does not exist in a month, credits are granted on the last day of that month.\n\n- Example: If the reference date is March 31, grants occur on April 30, May 31, and June 30.\n- In a non-leap-year February, credits are granted on February 28.\n- Teachers who join mid-month receive included credits immediately after account verification.\n- When a Teacher leaves or is unlinked from the organization, AI Credit usage is disabled immediately.\n- If a Teacher rejoins the same company after already receiving that month's credits, credits are not granted again.\n- If a Teacher joins a different company, monthly credits are granted based on the new organization.\n\n### Additional credit requests\n\nTeachers can click **Request credits** to ask their organization admin for more credits. When the admin approves, credits are deducted from the shared Admin pool and granted to the Teacher immediately.\n\nThere is no in-product request feature for an Admin or organization to request credits from a top-level admin. In that case, contact the assigned top-level admin directly, and credits are granted after the additional contract is completed.\n\n### Editing grant information\n\n- **Grant additional Admin credits**: granted immediately and added to the existing balance.\n- **Grant additional Teacher credits**: granted immediately and added to the existing balance.\n- **Change monthly Teacher credit amount**: applied from the next grant.",
+  "Refund and cancellation handling depends on the credit type and task status.\n\n- **Monthly included credits**: not refundable. If the user leaves or is unlinked from the organization, usage stops immediately.\n- **Additional credits**: not refundable. If the user leaves or is unlinked from the organization, usage stops immediately.\n- **Cancel an AI task midway**: credits are deducted only for the tokens used up to cancellation, and the unused portion is returned.\n- **System error**: if an AI engine or system error prevents results from being provided, the reserved credits are fully restored."
+];
+
+const aiCreditsEnglishFaq = "### AI Credits\n\n**Q. I still have monthly credits left. Do they roll over to next month?**\n\nYes. The AI Credit policy lists monthly included credits as available for rollover. You can check your remaining credits and next refill schedule in **Setting > AI Credit**.\n\n**Q. What should I do if I do not have enough credits?**\n\nYou can purchase an additional credit pack or request more credits from your organization admin. If you are an organization Teacher, use **Request credits**; once the admin approves, credits are granted immediately.\n\n**Q. If I stop an AI task partway through, will I get a refund?**\n\nIf you cancel midway, credits are deducted only for the tokens used by the results generated up to cancellation. The unused portion is returned.\n\n**Q. What happens if the AI returns an error?**\n\nIf an AI engine or system error prevents results from being provided, all reserved credits are restored.\n\n**Q. What happens to my remaining credits if I leave?**\n\nIf you leave or are unlinked from an organization, AI Credit usage is disabled immediately. Monthly included credits and additional credits are not refundable.\n\n**Q. Where can I see my credit usage history?**\n\nYou can review monthly credit usage in **Setting > AI Credit** under **Usage History**.";
+
+translations.en.manualTree = translations.en.manualTree || {};
+translations.en.articles = translations.en.articles || {};
+translations.en.articleBodies = translations.en.articleBodies || {};
+
+Object.assign(translations.en.manualTree, {
+  'cat-ai-credits': {
+    title: '10. How AI Credits work',
+    description: 'How AI Credits are granted, used, deducted, and refunded'
+  },
+  'cat-faq': {
+    title: '11. Frequently Asked Questions (FAQ)',
+    description: 'Answers to common questions while using LumiTeach'
+  }
+});
+
+Object.assign(translations.en.articles, {
+  'cat-ai-credits': {
+    title: 'How AI Credits work',
+    desc: 'Learn how AI Credits work, including credit types, usage estimates, deduction rules, admin operations, and refund handling.',
+    note: 'AI Credits are deducted based on the AI feature you use and the actual amount of AI processing. Monthly included credits and additional credits follow different rules.',
+    sections: [
+      'About LumiTeach AI',
+      'What are AI Credits?',
+      'Credit types at a glance',
+      'Typical credit usage by AI feature',
+      'How credits are checked and deducted',
+      'Credit consumption order and validity',
+      'Admin credit operations guide',
+      'Refund and cancellation policy'
+    ]
+  },
+  'cat-faq': {
+    title: 'Frequently Asked Questions (FAQ)',
+    desc: 'Common questions about using LumiTeach are grouped by topic.',
+    note: 'If you cannot find what you need, check the relevant feature guide. If you are new, start with the Get Started Guide.',
+    sections: [
+      'Getting Started & Account',
+      'Creating a Lesson (Edit Lesson)',
+      'Running a Class (Teaching)',
+      'Student View & Participation',
+      'Checking Results',
+      'Idea Board / Whiteboard',
+      'Other',
+      'AI Credits'
+    ]
+  }
+});
+
+translations.en.articleBodies['cat-ai-credits'] = aiCreditsEnglishBody;
+translations.en.articleBodies['cat-faq'] = translations.en.articleBodies['cat-faq'] || [];
+if (!translations.en.articleBodies['cat-faq'].some((body) => body.includes('I still have monthly credits left'))) {
+  translations.en.articleBodies['cat-faq'].push(aiCreditsEnglishFaq);
+}
+// END AI CREDITS MANUAL TRANSLATION PATCH
