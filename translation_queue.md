@@ -23,7 +23,7 @@ Progress: 80 / 104 full complete
 | ✅ | 14 | `edit-lesson-rename` | 03. Lesson 만들고 관리하기 > Edit Lesson 사용하기 > 2. Lesson 명 변경하기 | - |
 | ✅ | 15 | `edit-lesson-add-activity` | 03. Lesson 만들고 관리하기 > Edit Lesson 사용하기 > 3. Activity 추가하기 | - |
 | ✅ | 16 | `edit-lesson-load-storage` | 03. Lesson 만들고 관리하기 > Edit Lesson 사용하기 > 4. My Storage로 다른 Lesson 불러오기 | - |
-| ✅ | 17 | `edit-lesson-ai-make` | 03. Lesson 만들고 관리하기 > Edit Lesson 사용하기 > 5. AI Make로 Activity 추가하기 | - |
+| ✅ | 17 | `edit-lesson-ai-make` | 03. Lesson 만들고 관리하기 > Edit Lesson 사용하기 > 5. With AI로 Activity 추가하기 | - |
 | ✅ | 18 | `edit-lesson-interaction` | 03. Lesson 만들고 관리하기 > Edit Lesson 사용하기 > 6. Interaction 모드로 수업하기 | - |
 | ✅ | 19 | `edit-lesson-presentation` | 03. Lesson 만들고 관리하기 > Edit Lesson 사용하기 > 7. Presentation 모드로 수업하기 | - |
 | ✅ | 20 | `edit-lesson-undo-redo` | 03. Lesson 만들고 관리하기 > Edit Lesson 사용하기 > 8. Redo / Undo 사용하기 | - |
