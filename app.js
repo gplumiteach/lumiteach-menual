@@ -1178,6 +1178,21 @@ function normalizeSearchText(value) {
     .toLowerCase();
 }
 
+function cleanSearchResultText(value) {
+  return String(value || '')
+    .replace(/\[\[image:[^\]]+\]\]/g, ' ')
+    .replace(/\[\[table:[^\]]+\]\]/g, ' ')
+    .replace(/\[\[callout:[^\]]+\]\]/g, ' ')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/^#{1,6}\s+/gm, '')
+    .replace(/^>\s?/gm, '')
+    .replace(/^\s*[-*+]\s+/gm, '')
+    .replace(/\*\*(.*?)\*\*/g, '$1')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function getLocalizedArticleBodiesForSearch(article) {
   const defaultBodies = articleBodies[article.key] || [];
   const localizedBodies = activeTranslations().articleBodies?.[article.key] || [];
@@ -1258,10 +1273,11 @@ function renderSearchResults(query, box) {
   box.innerHTML = matches.length
     ? matches.map((article) => {
       const localized = localizeArticle(article);
+      const description = cleanSearchResultText(localized.desc);
       return `
       <div class="result-item" onclick="showArticle('${article.key}')">
         <strong>${escapeHtml(localized.title)}</strong>
-        <span>${escapeHtml(localized.category)} · ${escapeHtml(localized.desc)}</span>
+        <span>${escapeHtml(localized.category)} · ${escapeHtml(description)}</span>
       </div>
     `;
     }).join('')
